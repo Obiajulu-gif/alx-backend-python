@@ -23,7 +23,7 @@ class TestAccessNestedMap(unittest.TestCase):
     ])
     def test_access_nested_map_exception(self, nested_map, path):
         """Test access_nested_map with invalid inputs."""
-        with self.assertRaises(KeyError):
+        with self.assertRaises(KeyError) as context:
             access_nested_map(nested_map, path)
         self.assertEqual(str(context.exception), "'{}'".format(path[-1]))
 
