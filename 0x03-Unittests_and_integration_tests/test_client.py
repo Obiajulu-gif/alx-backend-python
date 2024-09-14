@@ -28,6 +28,13 @@ class TestGithubOrgClient(unittest.TestCase):
         # Check if the result is the mocked return value
         self.assertEqual(result, {"test": "value"})
 
+    def test_public_repos_url(self):
+        """Test the _public_repos_url method of GithubOrgClient"""
+        client = GithubOrgClient("google")
+
+        # Check if the result is the mocked return value
+        self.assertEqual(client._public_repos_url, client.org["repos_url"])
+
 
 if __name__ == '__main__':
     unittest.main()
