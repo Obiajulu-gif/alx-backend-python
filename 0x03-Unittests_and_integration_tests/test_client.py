@@ -83,10 +83,10 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
 
         def side_effect(url):
             if url == "https://api.github.com/orgs/google":
-                return MockResponse(cls.org_payload)
+                return MockResponse(cls.org_payload, status_code=200)
             elif url == "https://api.github.com/orgs/google/repos":
-                return MockResponse(cls.repos_payload)
-            return MockResponse(None)
+                return MockResponse(cls.repos_payload, status_code=200)
+            return MockResponse(None, status_code=404)
 
         cls.mock_get.side_effect = side_effect
 
