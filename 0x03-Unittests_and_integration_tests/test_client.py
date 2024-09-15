@@ -112,8 +112,9 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
 class MockResponse:
     """Mock response class for requests.get"""
 
-    def __init__(self, json_data):
+    def __init__(self, json_data, status_code):
         self.json_data = json_data
+        self.status_code = status_code
 
     def json(self):
         return self.json_data
